@@ -15,7 +15,7 @@ var notifyText = `export MyShopToken="${reqToken}"`
     if (reqBody.shopId) {
         try {
             await update(notifyText);
-            $.msg(`关注有礼`, `获取活动信息成功🎉`, `${notifyText}`);
+            $.msg(`店铺签到token`, `获取活动信息成功🎉`, `${notifyText}`);
         } catch (error) {
             $.logErr(error);
         } finally {
