@@ -9,7 +9,7 @@ var token = getQueryString(reqQueryStr, "token")
 var notifyText = `export MyShopToken="${token}`
 
 !(async () => {
-    if (shopId) {
+    if (token) {
         try {
             await update(notifyText)
             $.msg(`店铺token`, `获取token成功🎉`, `${notifyText}`)
