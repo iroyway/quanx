@@ -1,29 +1,34 @@
 const $ = new Env('店铺签到token');
 
-var reqUrl = $request.url;
-var reqQueryStr = reqUrl.split("?")[1]
+var jUrl = $request.url;
+var jBody = $request.body;
+console.log(jUrl);
+console.log(jBody);
+var reqBody = getQueryString(jBody, "body");
+var reqToken = getQueryString(jBody, "token");
 
-var token = getQueryString(reqQueryStr, "token")
 
 
-var notifyText = `export MyShopToken="${token}"`
+var notifyText = `export MyShopToken="${reqToken}"`
 
 !(async () => {
-    if (token) {
+    if (reqBody.shopId) {
         try {
-            await update(notifyText)
-            $.msg(`店铺token`, `获取token成功🎉`, `${notifyText}`)
+            await update(notifyText);
+            $.msg(`关注有礼`, `获取活动信息成功🎉`, `${notifyText}`);
         } catch (error) {
             $.logErr(error);
         } finally {
             $.done();
         }
     }
-})().catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-}).finally(() => {
-    $.done();
-})
+})()
+    .catch((e) => {
+        $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
+    })
+    .finally(() => {
+        $.done();
+    });
 
 
 function getQueryString(qStr, name) {
