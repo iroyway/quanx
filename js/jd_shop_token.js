@@ -6,7 +6,7 @@ var reqQueryStr = reqUrl.split("?")[1]
 var token = getQueryString(reqQueryStr, "token")
 
 
-var notifyText = `export MyShopToken="${token}`
+var notifyText = `export MyShopToken="${token}"`
 
 !(async () => {
     if (token) {
