@@ -10,7 +10,7 @@ var queryStr = jUrl.split("?")[1]
 
 var actUrl = jUrl.split(`/`);
 if (actUrl[2]) {
-    if (actUrl && actUrl.length ！== 32) {
+    if (actUrl && actUrl.length < 32) {
         $.done();        
     }
     else {
