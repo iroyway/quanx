@@ -14,9 +14,12 @@ if (actUrl[2]) {
 } else {
     actUrl = "";
 }
+if (actUrl && actUrl.length < 32) {
+    $.done()
+}
 
 var actId = getQueryString(queryStr, "activityId")
-if (actId && actId.length < 26) {
+if (actId && actId.length < 32) {
     $.done()
 }
 
