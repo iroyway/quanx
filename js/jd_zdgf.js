@@ -10,11 +10,11 @@ var queryStr = jUrl.split("?")[1]
 
 var actUrl = jUrl.split(`/`);
 if (actUrl[2]) {
-    if (actUrl && actUrl.length < 32) {
-        $.done();
+    if (actUrl && actUrl.length == 32) {
+        actUrl = (actUrl.slice(0, 3)).join("/");
     }
     else {
-        actUrl = (actUrl.slice(0, 3)).join("/");
+        $.done();
     }
 } else {
     actUrl = "";
