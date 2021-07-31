@@ -10,13 +10,16 @@ var queryStr = jUrl.split("?")[1]
 
 var actUrl = jUrl.split(`/`);
 if (actUrl[2]) {
-    actUrl = (actUrl.slice(0, 3)).join("/");
+    if (actUrl && actUrl.length < 32) {
+        $.done();
+    }
+    else {
+        actUrl = (actUrl.slice(0, 3)).join("/");
+    }
 } else {
     actUrl = "";
 }
-if (actUrl && actUrl.length < 32) {
-    $.done()
-}
+
 
 var actId = getQueryString(queryStr, "activityId")
 if (actId && actId.length < 32) {
