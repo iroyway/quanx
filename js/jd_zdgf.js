@@ -16,9 +16,9 @@ if (actUrl[2]) {
     else {
         actUrl = (actUrl.slice(0, 3)).join("/");
     }
-} else {
-    actUrl = "";
-}
+} //else {
+    //actUrl = "";
+//}
 
 
 var actId = getQueryString(queryStr, "activityId")
