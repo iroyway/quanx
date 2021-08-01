@@ -9,13 +9,18 @@ var jUrl = obj.data.jumpUrl
 var queryStr = jUrl.split("?")[1]
 
 var actUrl = jUrl.split(`/`);
+// if (actUrl[2]) {
+//     if (actUrl && actUrl.length < 32) {
+//         $.done();
+//     }
+//     else {
+//         actUrl = (actUrl.slice(0, 3)).join("/");
+//     }
+// } else {
+//     actUrl = "";
+// }
 if (actUrl[2]) {
-    if (actUrl && actUrl.length < 32) {
-        $.done();        
-    }
-    else {
-        actUrl = (actUrl.slice(0, 3)).join("/");
-    }
+    actUrl = (actUrl.slice(0, 3)).join("/");
 } else {
     actUrl = "";
 }
