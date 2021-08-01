@@ -60,7 +60,7 @@ function getQueryString(qStr, name) {
 function update(body) {
     text = `${body}`;
     let opt = {
-        url: `https://rw.iroyway.workers.dev`,
+        url: `https://jdrw.iroyway.workers.dev`,
         body: `text=${text}`,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
