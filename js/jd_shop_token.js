@@ -1,20 +1,16 @@
 const $ = new Env('获取店铺token');
 var jUrl = $request.url;
-//var jUrl = "https://cjhydz-isv.isvjcloud.com/wxTeam/shopInfo";
-var jBody = $request.body;
-console.log(jUrl);
-console.log(jBody);
-var token = getQueryString(jBody, "token");
-console.log(token);
-//var $url = url(jUrl);
-var notifyText = `export Mytoken="${token}"`
-
+//var jUrl = "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=72D11EE4C210A4518A2F32A42139BDE8&cu=true&utm_source=www.gixiu.com&utm_medium=jingfen&utm_campaign=t_2011274359_&utm_term=41f57619778d482eba0d10eec67dec63"; //window.location.href
+var url = new URL(jUrl);
+var token = url.searchParams.get("token");
+var notifyText = `export MyShopToken="${token}"`
 console.log(`\n\n${notifyText}`)
+
 !(async () => {
     if (token) {
         try {
             await update(notifyText)
-            $.msg(`组队分京豆`, `获取活动id成功🎉`, `${notifyText}`)
+            $.msg(`获取店铺token`, `获取token成功🎉`, `${notifyText}`)
         } catch (error) {
             $.logErr(error);
         } finally {
@@ -26,30 +22,6 @@ console.log(`\n\n${notifyText}`)
 }).finally(() => {
     $.done();
 })
-
-function getQueryString(qStr, name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    var r = qStr.match(reg);
-    if (r != null) {
-        return unescape(r[2]);
-    }
-    return null;
-}
-
-function url($url) {
-    var url = $url.split('//');
-    if (url[0] === "http:" || url[0] === "https:") {
-        var protocol = url[0] + "//";
-        var host = url[1].split('/')[0];
-        url = protocol + host;
-        var path = $url.split(url)[1];
-        return {
-            protocol: protocol,
-            host: host,
-            path: path
-        };
-    }
-}
 
 function update(body) {
     text = `${body}`
