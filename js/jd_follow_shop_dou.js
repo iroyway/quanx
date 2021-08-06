@@ -12,8 +12,8 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-//var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv}`
-var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%221000208743%22%2C%22activityId%22%3A%2210459631%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%221000208743%22%7D&client=apple&clientVersion=10.0.8&openudid=c3267405e0e6b11d0a8a2e4963b650d070b3c99c&sign=6c11bbeca7327e5414ddea5f108c88de&st=1628249621340&sv=101`
+var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv}`
+//var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%221000208743%22%2C%22activityId%22%3A%2210459631%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%221000208743%22%7D&client=apple&clientVersion=10.0.8&openudid=c3267405e0e6b11d0a8a2e4963b650d070b3c99c&sign=6c11bbeca7327e5414ddea5f108c88de&st=1628249621340&sv=101`
 console.log(`\n\n${notifyText}`)
 
 !(async () => {
