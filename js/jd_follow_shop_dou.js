@@ -12,7 +12,7 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-var notifyText = `%5Bdou%5D%28https%3A%2F%2Fapi.m.jd.com%2Fclient.action%3FfunctionId%3DdrawShopGift%26body%3D%257B%2522follow%2522%253A0%252C%2522shopId%2522%253A%2522%24%7BreqBody.shopId%7D%2522%252C%2522activityId%2522%253A%2522%24%7BreqBody.activityId%7D%2522%252C%2522sourceRpc%2522%253A%2522shop_app_home_window%2522%252C%2522venderId%2522%253A%2522%24%7BreqBody.venderId%7D%2522%257D%26client%3Dapple%26clientVersion%3D%24%7BclientVersion%7D%26openudid%3D%24%7Bopenudid%7D%26osVersion%3D14.4.2%26sign%3D%24%7BreqSign%7D%26st%3D%24%7BreqSt%7D%26sv%3D%24%7BreqSv%7D%29`
+var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv}`
 console.log(`\n\n${notifyText}`)
 
 !(async () => {
