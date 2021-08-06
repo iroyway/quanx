@@ -14,7 +14,7 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-var notifyText = `export FOLLOW_SHOP_ID="${reqBody.shopId}"\nexport FOLLOW_VENDER_ID="${reqBody.venderId}"\nexport FOLLOW_ACT_ID="${reqBody.activityId}"\nexport FOLLOW_SIGN="clientVersion=${clientVersion}%26openudid=${openudid}%26sign=${reqSign}%26st=${reqSt}%26sv=${reqSv}"`;
+var notifyText = `export FOLLOW_SHOP_ID="${reqBody.shopId}"\nexport FOLLOW_VENDER_ID="${reqBody.venderId}"\nexport FOLLOW_ACT_ID="${reqBody.activityId}"\nexport FOLLOW_SIGN="clientVersion=${clientVersion}|openudid=${openudid}|sign=${reqSign}|st=${reqSt}|sv=${reqSv}"`;
 
 !(async () => {
     if (reqBody.shopId) {
