@@ -12,7 +12,7 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-var notifyText = `[豆](https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}}&sv=${reqSv})`
+var notifyText = `[豆](https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv})`
 console.log(`\n\n${notifyText}`)
 
 !(async () => {
