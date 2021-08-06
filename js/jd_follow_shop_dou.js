@@ -12,7 +12,7 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv}`
+var notifyText = `[dou](https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}&sv=${reqSv})`
 console.log(`\n\n${notifyText}`)
 
 !(async () => {
@@ -44,7 +44,7 @@ function getQueryString(qStr, name) {
 function update(body) {
     text = `${body}`
     let opt = {
-        url: `https://curly-wave-1a79.iroyway.workers.dev/`,
+        url: `https://polished-block-9f7e.iroyway.workers.dev/`,
         body: `text=${text}`,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
