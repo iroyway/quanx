@@ -12,11 +12,11 @@ var reqSv = getQueryString(jBody, "sv");
 
 reqBody = JSON.parse(reqBody);
 
-var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=10.0.9&openudid=c3267405e0e6b11d0a8a2e4963b650d070b3c99c&osVersion=14.4.2&sign=${reqSign}&st=1626659068702&sv=121`
+var notifyText = `https://api.m.jd.com/client.action?functionId=drawShopGift&body=%7B%22follow%22%3A0%2C%22shopId%22%3A%22${reqBody.shopId}%22%2C%22activityId%22%3A%22${reqBody.activityId}%22%2C%22sourceRpc%22%3A%22shop_app_home_window%22%2C%22venderId%22%3A%22${reqBody.venderId}%22%7D&client=apple&clientVersion=${clientVersion}&openudid=${openudid}}&osVersion=14.4.2&sign=${reqSign}&st=${reqSt}}&sv=${reqSv}`
 console.log(`\n\n${notifyText}`)
 
 !(async () => {
-    if (token) {
+    if (reqSign) {
         try {
             await update(notifyText)
             $.msg(`获取关注豆`, `获取关注豆成功🎉`, `${notifyText}`)
